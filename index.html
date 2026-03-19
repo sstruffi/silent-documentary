@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huether Hotel Portrait - Sara Truffi Portfolio</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #fcfaf5;
+        font-family: Arial, sans-serif;
+        color: #5a3b4d;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      nav ul {
+        list-style: none;
+      }
+
+      nav ul li {
+        display: inline-block;
+        position: relative;
+        margin-right: 20px;
+      }
+
+      nav a {
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        color: #d14f9c;
+        padding: 6px 10px;
+        display: block;
+        transition: all 0.2s ease;
+      }
+
+      nav a:hover {
+        color: #ffb6db;
+      }
+
+      nav a:active {
+        color: #aa2f79;
+      }
+
+      nav a:visited {
+        color: #c6428f;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        min-width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        overflow: hidden;
+        z-index: 1000;
+      }
+
+      .dropdown-content li {
+        display: block;
+        margin: 0;
+      }
+
+      .dropdown-content a {
+        padding: 12px 16px;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #eeeeee;
+        color: #ffb6db;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .hero {
+        padding: 55px 0 30px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        font-size: 0.85em;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: #b87aa0;
+        margin-bottom: 12px;
+      }
+
+      .hero h1 {
+        font-size: 3em;
+        line-height: 1.1;
+        color: #d14f9c;
+        margin-bottom: 16px;
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 0 auto;
+        line-height: 1.8;
+        color: #7a5d6d;
+        font-size: 1.05em;
+      }
+
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 24px;
+      }
+
+      .meta-row span {
+        background: #fff0f7;
+        color: #d14f9c;
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-size: 0.85em;
+        border: 1px solid #f3d6e6;
+      }
+
+      .section {
+        margin-top: 85px;
+      }
+
+      .section-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .section h2 {
+        color: #d14f9c;
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .divider {
+        width: 42px;
+        height: 2px;
+        background: #d14f9c;
+        margin-bottom: 22px;
+      }
+
+      .section p {
+        line-height: 1.85;
+        color: #6d5c67;
+        margin-bottom: 18px;
+        font-size: 1.04em;
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: start;
+        max-width: 950px;
+        margin: 0 auto;
+      }
+
+      .two-column h2 {
+        color: #d14f9c;
+        font-size: 1.8em;
+        margin-bottom: 10px;
+      }
+
+      .two-column p,
+      .two-column li {
+        line-height: 1.8;
+        color: #6d5c67;
+        font-size: 1.02em;
+      }
+
+      .two-column ul {
+        padding-left: 20px;
+      }
+
+      .two-column li {
+        margin-bottom: 10px;
+      }
+
+      .full-image {
+        width: 100%;
+        display: block;
+        margin: 34px auto 0;
+        border-radius: 14px;
+      }
+
+      .video-wrap {
+        max-width: 900px;
+        margin: 34px auto 0;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+      }
+
+      .video-wrap iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 0;
+        display: block;
+      }
+
+      .quote-block {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 28px 0 8px;
+        text-align: center;
+      }
+
+      .quote-block p {
+        font-size: 1.25em;
+        line-height: 1.7;
+        color: #c6428f;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+
+      .project-button {
+        display: inline-block;
+        text-decoration: none;
+        color: #d14f9c;
+        border: 1px solid #d14f9c;
+        padding: 11px 18px;
+        border-radius: 999px;
+        font-size: 0.95em;
+        transition: all 0.2s ease;
+      }
+
+      .project-button:hover {
+        background-color: #d14f9c;
+        color: white;
+      }
+
+      footer {
+        background-color: #d14f9c;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 70px;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      @media (max-width: 900px) {
+        .two-column {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .container {
+          padding: 16px;
+        }
+
+        nav ul li {
+          display: block;
+          margin-right: 0;
+          margin-bottom: 8px;
+        }
+
+        .dropdown-content {
+          position: static;
+          display: block;
+          box-shadow: none;
+          background: transparent;
+          bosder-radius: 0;
+          min-width: unset;
+          margin-left: 10px;
+        }
+
+        .dropdown-content a {
+          padding: 8px 10px;
+          background: transparent;
+        }
+
+        .hero {
+          padding: 36px 0 18px;
+        }
+
+        .hero h1 {
+          font-size: 2.2em;
+        }
+
+        .section {
+          margin-top: 60px;
+        }
+
+        .section h2,
+        .two-column h2 {
+          font-size: 1.65em;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+
+          <li class="dropdown">
+            <a href="work.index">Projects</a>
+            <ul class="dropdown-content">
+              <li><a href="videography.html">Videography</a></li>
+              <li><a href="https://sstruffi.github.io/Branding/">Branding</a></li>
+              <li><a href="web-app.html">Web and App</a></li>
+              <li><a href="graphic-design.html">Graphic Design</a></li>
+            </ul>
+          </li>
+
+          <li><a href="aboutme.html">About Me</a></li>
+          <li><a href="contactme.html">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container">
+      <section class="hero">
+        <p class="eyebrow">Videography / Silent Portrait</p>
+        <h1>Huether Hotel Portrait</h1>
+        <p>
+          A short silent documentary capturing everyday life at the Huether Hotel in Uptown Waterloo,
+          including the café, lounge, and Jazz Room, and showing how different routines and
+          environments come together in one place.
+        </p>
+
+        <div class="meta-row">
+          <span>Silent Documentary</span>
+          <span>Observational Filmmaking</span>
+          <span>Visual Storytelling</span>
+          <span>Editing</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://youtu.be/l-aq66NdCII" target="_blank" rel="noopener noreferrer" class="project-button">Watch on YouTube</a>
+          <a href="videography.html" class="project-button">Back to Videography</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="container section">
+      <div class="section-inner">
+        <h2>Film</h2>
+        <div class="divider"></div>
+
+        <p>
+          The film focuses on the Huether Hotel as a place people move through in different ways
+          throughout the day. In the morning, it captures quieter moments in the café, with coffee,
+          pastries, and early guests. As the day progresses, the space becomes busier, with people
+          meeting friends, working on laptops, passing through, and spending time in the Jazz Room.
+        </p>
+
+        <p>
+          Rather than using spoken explanation, the project tells the story visually through details
+          like coffee being poured, cups placed on tables, people moving through the building,
+          conversations, and live jazz instruments on display. The goal is to show the hotel as a
+          place where different routines and environments come together. 
+        </p>
+      </div>
+
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/l-aq66NdCII"
+          title="Huether Hotel Portrait"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="two-column">
+        <div>
+          <h2>Shooting Style</h2>
+          <div class="divider"></div>
+          <p>
+            The shooting style is calm and observational, using mostly tripod shots. Wide shots show
+            the space and how people move through the café, lounge, and bar. Medium shots focus on
+            activity at the seating areas, café counter, and tables, while close-ups capture details
+            like coffee being poured, hands typing, cups on tables, and jazz instruments. 
+          </p>
+          <p>
+            A few slow-moving shots follow customers as they walk to the counter or bring drinks to
+            their seats, but the camera stays subtle and out of the way. Instead of focusing on faces,
+            many shots frame people from behind, over the shoulder, or through hands and movement to
+            create emotion and tell the story.
+          </p>
+        </div>
+
+        <div>
+          <h2>Production Plan</h2>
+          <div class="divider"></div>
+          <p>
+            The project was planned for the Huether Hotel and The Jazz Room at 59 King Street North
+            in Uptown Waterloo. The production plan included evening filming in the Jazz Room for setup,
+            performance, and relaxed guests, then morning and midday filming to capture the exterior,
+            café preparation, empty or quieter interiors, and the busier lunch period with tables filling,
+            guests passing through, and people eating and talking.
+          </p>
+          <p>
+            The planned equipment included a Canon R7, 18–150 mm lens, Canon SX730 HS, and a
+            Manfrotto tripod. Personnel included friends acting naturally in the space, customers,
+            and staff if possible.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="section-inner">
+        <h2>Outcome</h2>
+        <div class="divider"></div>
+
+        <p>
+          This project shows my interest in observational film and visual storytelling through mood,
+          pacing, and detail. It focuses on building atmosphere through framing, movement, and editing
+          rather than dialogue, and highlights the type of film work I want to keep exploring in my
+          videography practice.
+        </p>
+      </div>
+    <footer>@ 2026 Sara Truffi - All Rights Reserved</footer>
+  </body>
+</html>
